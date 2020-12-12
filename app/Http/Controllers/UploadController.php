@@ -11,7 +11,7 @@ class UploadController extends Controller
 {
 		public function getFiles($perPage = 20)
 		{
-			$path = public_path('storage/app/public/video');
+			$path = 'storage/video';
 			$files = preg_grep('~\.(mp4)$~', scandir($path));
 			$pagination = new Paginator(array_reverse($files), $perPage);
 			return $pagination;

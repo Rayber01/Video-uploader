@@ -13,7 +13,7 @@
         </div>
         <ul class="list-unstyled video-list-thumbs row">
             <li class="col-lg-3 col-sm-4 col-xs-6 d-flex justify-content-center" v-for="(item, index) in linkUpdates">
-                <video-component :link="'pro/storage/app/public/video/'+item" :name="item" :key="componentKey" @deleteVideo="deleteItem(item)"></video-component>
+                <video-component :link="'storage/video/'+item" :name="item" :key="componentKey" @deleteVideo="deleteItem(item)"></video-component>
             </li>
         </ul>
         <div class="row mb-4">

@@ -20,6 +20,7 @@ Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/video/{perPage?}', [App\Http\Controllers\UploadController::class, 'getFiles']);
 Route::post('/video', [App\Http\Controllers\UploadController::class, 'saveVideo']);
 Route::post('/video/delete', [App\Http\Controllers\UploadController::class, 'deleteVideo']);
+Route::post('/getLink', [App\Http\Controllers\UploaderController::class, 'getLink']);
 
 Route::get('/clear-cache', function () {
 	Artisan::call('cache:clear');

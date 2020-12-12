@@ -1966,25 +1966,32 @@ __webpack_require__.r(__webpack_exports__);
     getShortLink: function getShortLink() {
       var _this = this;
 
-      var data = JSON.stringify({
-        "long_url": "http://scr.lea.mx/" + this.link,
-        "domain": "bit.ly"
-      });
-      var config = {
-        method: 'post',
-        url: 'https://api-ssl.bitly.com/v4/shorten',
-        headers: {
-          'Authorization': 'Bearer ' + "101dc4d7f02d018de99c8845ed81c74f2007abd1",
-          'Content-Type': 'application/json'
-        },
-        data: data
-      };
-      axios(config).then(function (response) {
+      axios.post('/getLink', {
+        link: this.link
+      }).then(function (response) {
         _this.shortLink = response.data.link;
         _this.le = true;
       })["catch"](function (error) {
-        console.log(error);
+        console.error(error);
       });
+      /*
+      var data = JSON.stringify({"long_url":process.env.MIX_APP_URL+this.link,"domain":"bit.ly"});
+      var config = {
+        method: 'post',
+        url: 'https://api-ssl.bitly.com/v4/shorten',
+        headers: { 
+          'Authorization': 'Bearer '+process.env.MIX_APP_BEARER, 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+       axios(config).then((response) => {
+        this.shortLink = response.data.link
+        this.le = true
+      }).catch((error) => {
+        console.log(error)
+      })
+      */
     },
     deleteVideo: function deleteVideo() {
       this.$emit("deleteVideo");
@@ -46038,10 +46045,7 @@ var render = function() {
           [
             _c("video-component", {
               key: _vm.componentKey,
-              attrs: {
-                link: "pro/storage/app/public/video/" + item,
-                name: item
-              },
+              attrs: { link: "storage/video/" + item, name: item },
               on: {
                 deleteVideo: function($event) {
                   return _vm.deleteItem(item)
@@ -62094,8 +62098,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/rayber/www/pro/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/rayber/www/pro/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/rayber/www/Video-uploader/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/rayber/www/Video-uploader/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

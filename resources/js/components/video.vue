@@ -59,7 +59,17 @@
         },
         methods:{
             getShortLink(){
+
+                axios.post('/getLink', {
+                  link: this.link,
+                }).then((response) => {
+                  this.shortLink = response.data.link
+                  this.le = true
+                }).catch((error) => {
+                  console.error(error);
+                });
                 
+                /*
                 var data = JSON.stringify({"long_url":process.env.MIX_APP_URL+this.link,"domain":"bit.ly"});
                 var config = {
                   method: 'post',
@@ -77,6 +87,7 @@
                 }).catch((error) => {
                   console.log(error)
                 })
+                */
 
             },
             deleteVideo(){
