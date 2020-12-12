@@ -14,6 +14,7 @@ The project was built using Laravel to handle back-end, Vue to handle front-end 
 - run: php artisan db:seed
 - run: npm install
 - run: npm run dev
+- run: php artisan storage:link
 - php artisan run serve
 
 **Note** by default login will be "test@example.com" and the password will be "test-video-uploader", you could change it by editting /database/seeders/UserSeeder.php and run php artisan db:seed again.
